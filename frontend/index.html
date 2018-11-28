@@ -11,7 +11,28 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    
+      
+    <div class="container">
+        <h1>Hello, world!</h1>  
+    </div>
+      
+
+      
+    <!--Initialized Firebase app    -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCE6sBKtVsx130BqyloBvX5wlZbe1JCrEo",
+        authDomain: "homemade-cuisine.firebaseapp.com",
+        databaseURL: "https://homemade-cuisine.firebaseio.com",
+        projectId: "homemade-cuisine",
+        storageBucket: "homemade-cuisine.appspot.com",
+        messagingSenderId: "817618132169"
+    };
+    firebase.initializeApp(config);
+    </script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

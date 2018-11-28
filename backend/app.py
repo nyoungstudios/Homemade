@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+from firebase_admin import db
 
 
 app = Flask(__name__)

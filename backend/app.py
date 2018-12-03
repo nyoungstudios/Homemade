@@ -1,8 +1,16 @@
 from flask import Flask, request, render_template
 from firebase_admin import db
+import FirebaseAuth
 
 
 app = Flask(__name__)
+
+ref = db.reference('/').get()
+print(ref)
+
+def getData(path):
+    ref = db.reference(path)
+    return ref.get()
 
 @app.route("/", methods=['GET'])
 def index():

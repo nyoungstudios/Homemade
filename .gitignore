@@ -1,3 +1,4 @@
 /backend/.idea/
 /backend/FirebaseAuth.py
 homemade-cuisine-firebase-adminsdk-*.json
+/backend/__pycache__/

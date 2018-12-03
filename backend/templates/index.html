@@ -10,28 +10,51 @@
 
     <title>Hello, world!</title>
   </head>
+  <style>
+    .image--cover {
+      width: 32px;
+      height: 32px;
+      border-radius: 32px;
+      margin: 10px;
+
+      object-fit: cover;
+      object-position: center right;
+    }
+    
+    #name {
+      margin-top: 15px;
+      
+    }
+  </style>
+    
   <body>
     
       
     <div class="container" style="max-width: 45rem;">
-        <h1>{{hello}}</h1>  
-        <div class="card mb-3">
-            <img class="card-img-top" src="http://fakeimg.pl/1920x1080/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h1>{{hello}}</h1>  
+      <div class="card mb-3">
+        <div class="container">
+          <div class="row">
+            <img src="http://fakeimg.pl/500x500/" class="image--cover">
+            <h6 class="card-title" id="name">Name</h6>
           </div>
         </div>
-        <br>
-        <div class="card mb-3">
-            <img class="card-img-top" src="http://fakeimg.pl/1920x1080/" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
+        <img class="card-img-top" src="http://fakeimg.pl/1920x1080/" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      </div>
+      </div>
+      <br>
+      <div class="card mb-3">
+        <img class="card-img-top" src="http://fakeimg.pl/1920x1080/" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
+      </div>
     </div>
     
     

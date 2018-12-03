@@ -1,0 +1,17 @@
+
+/*This is the custom style sheet*/
+
+.image--cover {
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  margin: 10px;
+
+  object-fit: cover;
+  object-position: center right;
+}
+
+#name {
+  margin-top: 15px;
+
+}

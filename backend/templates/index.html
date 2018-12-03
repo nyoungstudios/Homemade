@@ -10,12 +10,36 @@
 
     <title>Hello, world!</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/myStyles.css')}}">
+    
+    <style>
+      @media (min-width: 650px){
+          .navbar-expand-custom {
+              flex-direction: row;
+              flex-wrap: nowrap;
+              justify-content: flex-start;
+          }
+          .navbar-expand-custom .navbar-nav {
+              flex-direction: row;
+          }
+          .navbar-expand-custom .navbar-nav .nav-link {
+              padding-right: .5rem;
+              padding-left: .5rem;
+          }
+          .navbar-expand-custom .navbar-collapse {
+              display: flex!important;
+          }
+          .navbar-expand-custom .navbar-toggler {
+              display: none;
+          }
+      }
+    
+    </style>
   </head>
   
     
   <body>
     
-    <nav class="navbar navbar-expand-lg navbar-light bg-success">
+    <nav class="navbar navbar-expand-custom navbar-light bg-success">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -52,7 +76,7 @@
         <div class="clearfix">
           <img src="http://fakeimg.pl/500x500/" class="image--cover float-left">
           <h6 class="card-title float-left" id="name">Name</h6>
-          <p class="card-title float-right" id="name"><small class="text-muted">Posted 3 mins ago</small></p>
+          <p class="card-title float-right" id="name" style="margin-right: 15px"><small class="text-muted">Posted 3 mins ago</small></p>
         </div>
         
         <img class="card-img-top" src="http://fakeimg.pl/1920x1080/" alt="Card image cap">

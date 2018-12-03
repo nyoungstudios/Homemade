@@ -16,6 +16,10 @@ def getData(path):
 def index():
     return render_template('index.html', hello='Hello World!')
 
+@app.route("/signin", methods=['GET'])
+def signin():
+    return render_template('signin.html')
+
 #if wrong url is entered
 @app.errorhandler(404)
 def fourOohFour(error):

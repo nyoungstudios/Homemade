@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Homemade</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles/myStyles.css')}}">
     
     <style>
@@ -39,7 +39,8 @@
     
   <body>
     
-    <nav class="navbar navbar-expand-custom navbar-light bg-success">
+    <!-- Nav bar -->
+    <nav class="navbar sticky-top navbar-expand-custom navbar-light bg-success">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -74,8 +75,10 @@
       <div class="card mb-3">
         
         <div class="clearfix">
-          <img src="http://fakeimg.pl/500x500/" class="image--cover float-left">
-          <h6 class="card-title float-left" id="name">Name</h6>
+          <a class="text-dark" href="#">
+            <img src="http://fakeimg.pl/500x500/" class="image--cover float-left">
+            <h6 class="card-title float-left" id="name">Name</h6>
+          </a>
           <p class="card-title float-right" id="name" style="margin-right: 15px"><small class="text-muted">Posted 3 mins ago</small></p>
         </div>
         
@@ -84,20 +87,12 @@
         <div class="card-body">
           <h5 class="card-title">Card title</h5>
           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <a class="card-text" href="#"><small class="text-info">Read more</small></a>
         </div>
         
       </div>
       <br>
       
-      <div class="card mb-3">
-        <img class="card-img-top" src="http://fakeimg.pl/1920x1080/" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
     </div>
     
     

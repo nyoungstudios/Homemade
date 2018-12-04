@@ -101,8 +101,7 @@ $(document).ready(function() {
       showErrorMessage(password2Error, "Please re-enter your password.")
     } else if (password1Field.val() != password2Field.val()) {
       event.preventDefault();
-      hideErrorMessage(email1Suggestion);
-      hideErrorMessage(email2Suggestion);
+      
       hideErrorMessage(firstNameError);
       hideErrorMessage(lastNameError);
       hideErrorMessage(email1Error);
@@ -137,10 +136,10 @@ $(document).ready(function() {
       suggested: function(element, suggestion) {
         $('#email2LinkSuggestion').get(0).textContent = suggestion.full;
         $('#email2LinkSuggestion').get(0).href = 'javascript:changeEmailValue("#email2","' + suggestion.full + '");';
+        hideErrorMessage(email1Suggestion);
         showErrorMessage(email2Suggestion);
       },
       empty: function(element) {
-        hideErrorMessage(email1Suggestion);
         hideErrorMessage(email2Suggestion);
       }
       

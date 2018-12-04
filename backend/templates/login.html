@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-    <!-- Sign up webpage -->
+    <!-- Login webpage -->
     
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -74,23 +74,13 @@
                 <h3 class="display-4 text-center">Join Homemade.</h3>
                 <div class="container" style="max-width: 20rem;">
                   <p class="card-text text-center">Create an account to share and discover your favorite recipes from all around the world.</p>
-                  <p class="card-text text-center">Already have an account? <a href="/login" class="card-link">Log in</a></p>
+                  <p class="card-text text-center">No account? <a href="/signup" class="card-link">Create one</a></p>
                 </div>
               
                 <br>
               
                 <form>
-                  
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="firstName" placeholder="First name">
-                    <small class="d-none"><div id="firstNameError" class="form-text text-danger">First Name Error</div></small>
-                  </div>
-                  
-                  <div class="form-group">
-                    <input type="text" class="form-control" id="lastName" placeholder="Last name">
-                    <small class="d-none"><div id="lastNameError" class="form-text text-danger">Last Name Error</div></small>
-                  </div>
-                  
+                                  
                   <div class="form-group">
                     <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Email">
                     <small class="d-none"><div id="email1Error" class="form-text text-danger">Email Error</div></small>
@@ -98,22 +88,11 @@
                   </div>
                   
                   <div class="form-group">
-                    <input type="email" class="form-control" id="email2" aria-describedby="emailHelp" placeholder="Re-enter email">
-                    <small class="d-none"><div id="email2Error" class="form-text text-danger">Email Error</div></small>
-                    <small class="d-none"><div id="email2Suggestion" class="form-text text-muted">Did you mean <a id='email2LinkSuggestion' href='javascript:changeEmailValue("#email2", email");'>email</a>?</div></small>
-                  </div>
-                  
-                  <div class="form-group">
                     <input type="password" class="form-control" id="password1" placeholder="Password">
                     <small class="d-none"><div id="password1Error" class="form-text text-danger">Password Error</div></small>
                   </div>
                   
-                  <div class="form-group">
-                    <input type="password" class="form-control" id="password2" placeholder="Re-enter Password">
-                    <small class="d-none"><div id="password2Error" class="form-text text-danger">Password Error</div></small>
-                  </div>
-                  
-                  <button type="submit" class="btn btn-primary">Create Account</button>
+                  <button type="submit" class="btn btn-primary">Log me in!</button>
                 </form>
             </div>
           </div>
@@ -135,7 +114,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mailcheck/1.1.2/mailcheck.js"></script>
     
     <!-- Custom javascript files   -->
-    <script type='text/javascript' src="{{ url_for('static', filename='signup.js')}}"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename='login.js')}}"></script>
     
   </body>
 </html>

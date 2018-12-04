@@ -20,6 +20,10 @@ def index():
 def signin():
     return render_template('signup.html')
 
+@app.route("/login", methods=['GET'])
+def login():
+    return render_template('login.html')
+
 #if wrong url is entered
 @app.errorhandler(404)
 def fourOohFour(error):

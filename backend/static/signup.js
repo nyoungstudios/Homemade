@@ -3,7 +3,6 @@
 $(document).ready(function() {
   
   //variables selected with jQuery for text fields
-  
   var firstNameField = $('#firstName');
   var lastNameField = $('#lastName');
   var email1Field = $('#email1');
@@ -87,6 +86,16 @@ $(document).ready(function() {
       hideErrorMessage(email2Error);
       hideErrorMessage(password2Error);
       showErrorMessage(password1Error, "Please enter your password.")
+    } else if (password1Field.val().length < 8) {
+      event.preventDefault();
+      hideErrorMessage(email1Suggestion);
+      hideErrorMessage(email2Suggestion);
+      hideErrorMessage(firstNameError);
+      hideErrorMessage(lastNameError);
+      hideErrorMessage(email1Error);
+      hideErrorMessage(email2Error);
+      hideErrorMessage(password2Error);
+      showErrorMessage(password1Error, "Password must be at least 8 characters.")
     } else if (password2Field.val() == '') {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);

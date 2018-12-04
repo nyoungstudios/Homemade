@@ -33,9 +33,13 @@ def notLoggedIn():
     return render_template('not-logged-in.html')
 
 #if wrong url is entered
+@app.route("/404", methods=['GET'])
+def fourOhFour():
+    return render_template('404.html')
+
 @app.errorhandler(404)
 def fourOohFour(error):
-    return "file not found"
+    return render_template('404.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

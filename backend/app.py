@@ -28,6 +28,10 @@ def login():
 def logout():
     return render_template('logout.html')
 
+@app.route("/not-logged-in", methods=['GET'])
+def notLoggedIn():
+    return render_template('not-logged-in.html')
+
 #if wrong url is entered
 @app.errorhandler(404)
 def fourOohFour(error):

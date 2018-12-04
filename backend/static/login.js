@@ -29,17 +29,11 @@ $(document).ready(function() {
       showErrorMessage(password1Error, "Please enter your password.");
     } else {
       //signin for firebase
-      event.preventDefault();
+      event.preventDefault();  
       firebase.auth().signInWithEmailAndPassword(email1Field.val(), password1Field.val()).catch(function(error) {
         // Handle Errors here.
-        var errorCode = '';
-        var errorMessage = '';
-        
-        if (error != null) {
-          errorCode = error.code;
-          errorMessage = error.message;
-        }
-
+        var errorCode = error.code;
+        var errorMessage = error.message;
         
         if (errorCode == 'auth/user-not-found') {
           hideErrorMessage(email1Suggestion);
@@ -53,13 +47,14 @@ $(document).ready(function() {
           hideErrorMessage(email1Suggestion);
           hideErrorMessage(password1Error);
           showErrorMessage(email1Error, "Email is invalid.");
-        } else if (errorCode == '') {
-          console.log('success');
-//          window.location = '/';
+        } else if (errorCode == 'auth/user-disabled') {
+          hideErrorMessage(email1Suggestion);
+          hideErrorMessage(password1Error);
+          showErrorMessage(email1Error, "User is disabled.");
         }
         
-        
       });
+      
     }
     
     
@@ -115,24 +110,4 @@ function changeColorMuted(fieldError) {
 function changeEmailValue(idName, email) {
   $(idName).val(email);
 };
-
-
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    var displayName = user.displayName;
-    var email = user.email;
-    var emailVerified = user.emailVerified;
-    var photoURL = user.photoURL;
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-    var providerData = user.providerData;
-    console.log(displayName);
-    console.log(email);
-    
-  } else {
-    // User is signed out.
-    // ...
-  }
-});
 

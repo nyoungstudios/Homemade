@@ -6,7 +6,7 @@ $(document).ready(function() {
   //variables selected with jQuery for text fields
   
   var firstNameField = $('#firstName');
-  var lastNameField = $('lastName');
+  var lastNameField = $('#lastName');
   var email1Field = $('#email1');
   var email2Field = $('#email2');
   var password1Field = $('#password1');

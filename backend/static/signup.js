@@ -24,9 +24,21 @@ $(document).ready(function() {
   $("button[type='submit']").click(function(event) {
     console.log("test");
     
-    if ()
+    if (firstNameField.val() == '') {
+      event.preventDefault();  
+    } else if (lastNameField.val() == '') {
+      event.preventDefault();
+    } else if (email1Field.val() == '') {
+      event.preventDefault();
+    } else if (email2Error.val() == '') {
+      event.preventDefault();
+    } else if (password1Field.val() == '') {
+      event.preventDefault();
+    } else if (password2Field.val() == '') {
+      event.preventDefault();
+    }
     
-    event.preventDefault();
+    
     
   });
   

@@ -31,7 +31,8 @@ $(document).ready(function() {
     
     if (firstNameField.val() == '') {
       event.preventDefault();
-      changeColorRed(firstNameError);
+      hideErrorMessage(email1Suggestion);
+      hideErrorMessage(email2Suggestion);
       hideErrorMessage(lastNameError);
       hideErrorMessage(email1Error);
       hideErrorMessage(email2Error);
@@ -40,7 +41,8 @@ $(document).ready(function() {
       showErrorMessage(firstNameError, "Please enter your first name.")
     } else if (lastNameField.val() == '') {
       event.preventDefault();
-      changeColorRed(lastNameError);
+      hideErrorMessage(email1Suggestion);
+      hideErrorMessage(email2Suggestion);
       hideErrorMessage(firstNameError);
       hideErrorMessage(email1Error);
       hideErrorMessage(email2Error);
@@ -49,7 +51,8 @@ $(document).ready(function() {
       showErrorMessage(lastNameError, "Please enter your last name.")
     } else if (email1Field.val() == '') {
       event.preventDefault();
-      changeColorRed(email1Error);
+      hideErrorMessage(email1Suggestion);
+      hideErrorMessage(email2Suggestion);
       hideErrorMessage(firstNameError);
       hideErrorMessage(lastNameError);
       hideErrorMessage(email2Error);
@@ -58,7 +61,8 @@ $(document).ready(function() {
       showErrorMessage(email1Error, "Please enter your email.")
     } else if (email2Field.val() == '') {
       event.preventDefault();
-      changeColorRed(email2Error);
+      hideErrorMessage(email1Suggestion);
+      hideErrorMessage(email2Suggestion);
       hideErrorMessage(firstNameError);
       hideErrorMessage(lastNameError);
       hideErrorMessage(email1Error);
@@ -67,7 +71,8 @@ $(document).ready(function() {
       showErrorMessage(email2Error, "Please re-enter your email.")
     } else if (email1Field.val() != email2Field.val()) {
       event.preventDefault();
-      changeColorRed(email2Error);
+      hideErrorMessage(email1Suggestion);
+      hideErrorMessage(email2Suggestion);
       hideErrorMessage(firstNameError);
       hideErrorMessage(lastNameError);
       hideErrorMessage(email1Error);
@@ -76,7 +81,8 @@ $(document).ready(function() {
       showErrorMessage(email2Error, "Emails don't match.")
     } else if (password1Field.val() == '') {
       event.preventDefault();
-      changeColorRed(password1Error);
+      hideErrorMessage(email1Suggestion);
+      hideErrorMessage(email2Suggestion);
       hideErrorMessage(firstNameError);
       hideErrorMessage(lastNameError);
       hideErrorMessage(email1Error);
@@ -85,7 +91,8 @@ $(document).ready(function() {
       showErrorMessage(password1Error, "Please enter your password.")
     } else if (password2Field.val() == '') {
       event.preventDefault();
-      changeColorRed(password2Error);
+      hideErrorMessage(email1Suggestion);
+      hideErrorMessage(email2Suggestion);
       hideErrorMessage(firstNameError);
       hideErrorMessage(lastNameError);
       hideErrorMessage(email1Error);
@@ -94,7 +101,8 @@ $(document).ready(function() {
       showErrorMessage(password2Error, "Please re-enter your password.")
     } else if (password1Field.val() != password2Field.val()) {
       event.preventDefault();
-      changeColorRed(password2Error);
+      hideErrorMessage(email1Suggestion);
+      hideErrorMessage(email2Suggestion);
       hideErrorMessage(firstNameError);
       hideErrorMessage(lastNameError);
       hideErrorMessage(email1Error);
@@ -113,10 +121,27 @@ $(document).ready(function() {
       suggested: function(element, suggestion) {
         $('#email1LinkSuggestion').get(0).textContent = suggestion.full;
         $('#email1LinkSuggestion').get(0).href = 'javascript:changeEmailValue("#email1","' + suggestion.full + '");';
+        hideErrorMessage(email2Suggestion);
         showErrorMessage(email1Suggestion);
       },
       empty: function(element) {
         hideErrorMessage(email1Suggestion);
+      }
+      
+    });
+    
+  });
+  
+  email2Field.change(function() {
+    email2Field.mailcheck({
+      suggested: function(element, suggestion) {
+        $('#email2LinkSuggestion').get(0).textContent = suggestion.full;
+        $('#email2LinkSuggestion').get(0).href = 'javascript:changeEmailValue("#email2","' + suggestion.full + '");';
+        showErrorMessage(email2Suggestion);
+      },
+      empty: function(element) {
+        hideErrorMessage(email1Suggestion);
+        hideErrorMessage(email2Suggestion);
       }
       
     });

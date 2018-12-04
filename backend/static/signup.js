@@ -35,7 +35,7 @@ $(document).ready(function() {
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(firstNameError, "Please enter your first name.")
+      showErrorMessage(firstNameError, "Please enter your first name.");
     } else if (lastNameField.val() == '') {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);
@@ -45,7 +45,7 @@ $(document).ready(function() {
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(lastNameError, "Please enter your last name.")
+      showErrorMessage(lastNameError, "Please enter your last name.");
     } else if (email1Field.val() == '') {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);
@@ -55,7 +55,7 @@ $(document).ready(function() {
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(email1Error, "Please enter your email.")
+      showErrorMessage(email1Error, "Please enter your email.");
     } else if (email2Field.val() == '') {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);
@@ -65,7 +65,7 @@ $(document).ready(function() {
       hideErrorMessage(email1Error);
       hideErrorMessage(password1Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(email2Error, "Please re-enter your email.")
+      showErrorMessage(email2Error, "Please re-enter your email.");
     } else if (email1Field.val() != email2Field.val()) {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);
@@ -75,7 +75,7 @@ $(document).ready(function() {
       hideErrorMessage(email1Error);
       hideErrorMessage(password1Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(email2Error, "Emails don't match.")
+      showErrorMessage(email2Error, "Emails don't match.");
     } else if (password1Field.val() == '') {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);
@@ -85,7 +85,7 @@ $(document).ready(function() {
       hideErrorMessage(email1Error);
       hideErrorMessage(email2Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(password1Error, "Please enter your password.")
+      showErrorMessage(password1Error, "Please enter your password.");
     } else if (password1Field.val().length < 8) {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);
@@ -95,7 +95,7 @@ $(document).ready(function() {
       hideErrorMessage(email1Error);
       hideErrorMessage(email2Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(password1Error, "Password must be at least 8 characters.")
+      showErrorMessage(password1Error, "Password must be at least 8 characters.");
     } else if (password2Field.val() == '') {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);
@@ -105,7 +105,7 @@ $(document).ready(function() {
       hideErrorMessage(email1Error);
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
-      showErrorMessage(password2Error, "Please re-enter your password.")
+      showErrorMessage(password2Error, "Please re-enter your password.");
     } else if (password1Field.val() != password2Field.val()) {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);
@@ -115,7 +115,7 @@ $(document).ready(function() {
       hideErrorMessage(email1Error);
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
-      showErrorMessage(password2Error, "Passwords don't match.")
+      showErrorMessage(password2Error, "Passwords don't match.");
     }
     
     

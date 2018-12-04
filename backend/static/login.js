@@ -21,12 +21,45 @@ $(document).ready(function() {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);
       hideErrorMessage(password1Error);
-      showErrorMessage(email1Error, "Please enter your email.")
+      showErrorMessage(email1Error, "Please enter your email.");
     } else if (password1Field.val() == '') {
       event.preventDefault();
       hideErrorMessage(email1Suggestion);
       hideErrorMessage(email1Error);
-      showErrorMessage(password1Error, "Please enter your password.")
+      showErrorMessage(password1Error, "Please enter your password.");
+    } else {
+      //signin for firebase
+      event.preventDefault();
+      firebase.auth().signInWithEmailAndPassword(email1Field.val(), password1Field.val()).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = '';
+        var errorMessage = '';
+        
+        if (error != null) {
+          errorCode = error.code;
+          errorMessage = error.message;
+        }
+
+        
+        if (errorCode == 'auth/user-not-found') {
+          hideErrorMessage(email1Suggestion);
+          hideErrorMessage(password1Error);
+          showErrorMessage(email1Error, "User not found.");
+        } else if (errorCode == 'auth/wrong-password') {
+          hideErrorMessage(email1Suggestion);
+          hideErrorMessage(email1Error);
+          showErrorMessage(password1Error, "Password is invalid.");
+        } else if (errorCode == 'auth/invalid-email') {
+          hideErrorMessage(email1Suggestion);
+          hideErrorMessage(password1Error);
+          showErrorMessage(email1Error, "Email is invalid.");
+        } else if (errorCode == '') {
+          console.log('success');
+//          window.location = '/';
+        }
+        
+        
+      });
     }
     
     
@@ -83,4 +116,23 @@ function changeEmailValue(idName, email) {
   $(idName).val(email);
 };
 
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    var displayName = user.displayName;
+    var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    console.log(displayName);
+    console.log(email);
+    
+  } else {
+    // User is signed out.
+    // ...
+  }
+});
 

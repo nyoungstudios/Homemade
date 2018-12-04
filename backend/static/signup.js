@@ -26,7 +26,6 @@ $(document).ready(function() {
   
   //if the submit button is clicked
   $("button[type='submit']").click(function(event) {
-    console.log("test");
     
     if (firstNameField.val() == '') {
       event.preventDefault();

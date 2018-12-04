@@ -24,6 +24,10 @@ def signin():
 def login():
     return render_template('login.html')
 
+@app.route("/logout", methods=['GET'])
+def logout():
+    return render_template('logout.html')
+
 #if wrong url is entered
 @app.errorhandler(404)
 def fourOohFour(error):

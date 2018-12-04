@@ -60,6 +60,15 @@ $(document).ready(function() {
       hideErrorMessage(password1Error);
       hideErrorMessage(password2Error);
       showErrorMessage(email2Error, "Please re-enter your email.")
+    } else if (email1Field.val() != email2Field.val()) {
+      event.preventDefault();
+      changeColorRed(email2Error);
+      hideErrorMessage(firstNameError);
+      hideErrorMessage(lastNameError);
+      hideErrorMessage(email1Error);
+      hideErrorMessage(password1Error);
+      hideErrorMessage(password2Error);
+      showErrorMessage(email2Error, "Emails don't match.")
     } else if (password1Field.val() == '') {
       event.preventDefault();
       changeColorRed(password1Error);
@@ -78,8 +87,15 @@ $(document).ready(function() {
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
       showErrorMessage(password2Error, "Please re-enter your password.")
-    } else {
-      console.log("why")
+    } else if (password1Field.val() != password2Field.val()) {
+      event.preventDefault();
+      changeColorRed(password2Error);
+      hideErrorMessage(firstNameError);
+      hideErrorMessage(lastNameError);
+      hideErrorMessage(email1Error);
+      hideErrorMessage(email2Error);
+      hideErrorMessage(password1Error);
+      showErrorMessage(password2Error, "Passwords don't match.")
     }
     
     

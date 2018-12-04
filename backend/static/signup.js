@@ -1,7 +1,6 @@
 //javascript file for signup webpage
 
 $(document).ready(function() {
-  console.log('hi1');
   
   //variables selected with jQuery for text fields
   

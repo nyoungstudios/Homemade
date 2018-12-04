@@ -116,6 +116,43 @@ $(document).ready(function() {
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
       showErrorMessage(password2Error, "Passwords don't match.");
+    } else {
+      event.preventDefault();
+      firebase.auth().createUserWithEmailAndPassword(email1Field.val(), password1Field.val()).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        
+        if (errorCode == 'auth/email-already-in-use') {
+          hideErrorMessage(email1Suggestion);
+          hideErrorMessage(email2Suggestion);
+          hideErrorMessage(firstNameError);
+          hideErrorMessage(lastNameError);
+          hideErrorMessage(email2Error);
+          hideErrorMessage(password1Error);
+          hideErrorMessage(password2Error);
+          showErrorMessage(email1Error, "Email is already taken.");
+        } else if (errorCode == 'auth/invalid-email') {
+          hideErrorMessage(email1Suggestion);
+          hideErrorMessage(email2Suggestion);
+          hideErrorMessage(firstNameError);
+          hideErrorMessage(lastNameError);
+          hideErrorMessage(email2Error);
+          hideErrorMessage(password1Error);
+          hideErrorMessage(password2Error);
+          showErrorMessage(email1Error, "Email is invalid.");
+        } else if (errorCode == 'auth/weak-password') {
+          hideErrorMessage(email1Suggestion);
+          hideErrorMessage(email2Suggestion);
+          hideErrorMessage(firstNameError);
+          hideErrorMessage(lastNameError);
+          hideErrorMessage(email1Error);
+          hideErrorMessage(email2Error);
+          hideErrorMessage(password2Error);
+          showErrorMessage(password1Error, "Weak password");
+        }
+        
+      });
     }
     
     

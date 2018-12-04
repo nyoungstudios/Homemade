@@ -124,7 +124,24 @@
     
     
     
-          
+        
+    <!--Initialized Firebase app    -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCE6sBKtVsx130BqyloBvX5wlZbe1JCrEo",
+        authDomain: "homemade-cuisine.firebaseapp.com",
+        databaseURL: "https://homemade-cuisine.firebaseio.com",
+        projectId: "homemade-cuisine",
+        storageBucket: "homemade-cuisine.appspot.com",
+        messagingSenderId: "817618132169"
+    };
+    firebase.initializeApp(config);
+    </script>
+    
+    <!-- Already logged in script   -->
+    <script type='text/javascript' src="{{ url_for('static', filename='alreadyLoggedIn.js')}}"></script> 
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -136,6 +153,7 @@
     
     <!-- Custom javascript files   -->
     <script type='text/javascript' src="{{ url_for('static', filename='signup.js')}}"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename='createAccount.js')}}"></script>
     
   </body>
 </html>

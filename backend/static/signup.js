@@ -32,7 +32,7 @@ $(document).ready(function() {
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(firstNameError, "Please fill out this field.")
+      showErrorMessage(firstNameError, "Please enter your first name.")
     } else if (lastNameField.val() == '') {
       event.preventDefault();
       changeColorRed(lastNameError);
@@ -41,7 +41,7 @@ $(document).ready(function() {
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(lastNameError, "Please fill out this field.")
+      showErrorMessage(lastNameError, "Please enter your last name.")
     } else if (email1Field.val() == '') {
       event.preventDefault();
       changeColorRed(email1Error);
@@ -50,8 +50,8 @@ $(document).ready(function() {
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(email1Error, "Please fill out this field.")
-    } else if (email2Error.val() == '') {
+      showErrorMessage(email1Error, "Please enter your email.")
+    } else if (email2Field.val() == '') {
       event.preventDefault();
       changeColorRed(email2Error);
       hideErrorMessage(firstNameError);
@@ -59,7 +59,7 @@ $(document).ready(function() {
       hideErrorMessage(email1Error);
       hideErrorMessage(password1Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(email2Error, "Please fill out this field.")
+      showErrorMessage(email2Error, "Please re-enter your email.")
     } else if (password1Field.val() == '') {
       event.preventDefault();
       changeColorRed(password1Error);
@@ -68,7 +68,7 @@ $(document).ready(function() {
       hideErrorMessage(email1Error);
       hideErrorMessage(email2Error);
       hideErrorMessage(password2Error);
-      showErrorMessage(password1Error, "Please fill out this field.")
+      showErrorMessage(password1Error, "Please enter your password.")
     } else if (password2Field.val() == '') {
       event.preventDefault();
       changeColorRed(password2Error);
@@ -77,7 +77,9 @@ $(document).ready(function() {
       hideErrorMessage(email1Error);
       hideErrorMessage(email2Error);
       hideErrorMessage(password1Error);
-      showErrorMessage(password2Error, "Please fill out this field.")
+      showErrorMessage(password2Error, "Please re-enter your password.")
+    } else {
+      console.log("why")
     }
     
     
@@ -102,10 +104,12 @@ function showErrorMessage(fieldError, newText) {
   fieldError.parent().get(0).className = "d-block";
 };
 
+//change the text color to red
 function changeColorRed(fieldError) {
   fieldError.get(0).className = "form-text text-danger";
 };
 
+//change the text color to muted gray
 function changeColorMuted(fieldError) {
   fieldError.get(0).className = "form-text text-muted";
 };

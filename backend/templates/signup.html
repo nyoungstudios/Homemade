@@ -94,11 +94,13 @@
                   <div class="form-group">
                     <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Email">
                     <small class="d-none"><div id="email1Error" class="form-text text-muted">Email Error</div></small>
+                    <small class="d-none"><div id="email1Suggestion" class="form-text text-muted">Did you mean <a id='email1LinkSuggestion' href='javascript:changeEmailValue("#email1", email");'>email</a>?</div></small>
                   </div>
                   
                   <div class="form-group">
                     <input type="email" class="form-control" id="email2" aria-describedby="emailHelp" placeholder="Re-enter email">
                     <small class="d-none"><div id="email2Error" class="form-text text-muted">Email Error</div></small>
+                    
                   </div>
                   
                   <div class="form-group">

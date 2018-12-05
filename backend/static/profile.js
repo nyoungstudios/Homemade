@@ -115,6 +115,7 @@ function shareRecipe() {
 //        console.log(postText);
 //        console.log(photoUrl);
         
+        //saves post data to firebase
         firebase.database().ref('feed/' + feedLength).set({
           date: new Date().getTime(),
           description: postText,
@@ -123,11 +124,28 @@ function shareRecipe() {
           profilePhoto: photoUrl,
           title: postTitle,
           uid: user.uid
+        }, function(error) {
+          if (error) {
+            // The write failed...
+          } else {
+            // Data saved successfully!
+            jsonBody = {}
+            itemData[items] = feedLength;
+            jsonBody[user.uid] = itemData;
+            
+            
+            firebase.database().ref('users/').set(jsonBody, function(error) {
+              if (error) {
+                // The write failed...
+              } else {
+                // Data saved successfully!
+                window.location.pathname = window.location.pathname;         
+              }
+            });
+          }
         });
         
-        firebase.database().ref('users/' + user.uid).set({
-          items: feedLength,
-        });
+
 
       });
     });

@@ -56,13 +56,19 @@ def profile(id_token):
 
     # calculates the length in the dataset
     items = 0
+    itemData = data
     if data != None:
         items = len(data)
+    else:
+        itemData = []
+
+    print("Items: " + str(items))
 
     feedLength = 0
     if feedData != None:
         feedLength = len(feedData)
-    return render_template('profile.html', items=items, feedLength=feedLength)
+    print("Feed Length: " + str(feedLength))
+    return render_template('profile.html', items=items, itemData=itemData, feedLength=feedLength)
 
 #if wrong url is entered
 @app.route("/404", methods=['GET'])

@@ -42,6 +42,10 @@ def logout():
 def notLoggedIn():
     return render_template('not-logged-in.html')
 
+@app.route("/profile", methods=['GET'])
+def profile():
+    return render_template('profile.html')
+
 #if wrong url is entered
 @app.route("/404", methods=['GET'])
 def fourOhFour():

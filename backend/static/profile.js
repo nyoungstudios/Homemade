@@ -109,16 +109,25 @@ function shareRecipe() {
         //link download url with user in firebase
         var user = firebase.auth().currentUser;
 
-        console.log(user.uid);
-        console.log(downloadURL);
-        console.log(postTitle);
-        console.log(postText);
+//        console.log(user.uid);
+//        console.log(downloadURL);
+//        console.log(postTitle);
+//        console.log(postText);
+//        console.log(photoUrl);
         
+        firebase.database().ref('feed/' + feedLength).set({
+          date: new Date().getTime(),
+          description: postText,
+          name: user.displayName,
+          photo: downloadURL,
+          profilePhoto: photoUrl,
+          title: postTitle,
+          uid: user.uid
+        });
         
-        
-//        firebase.database().ref('users/' + user.uid).set({
-//          {{items}}: name,
-//        });
+        firebase.database().ref('users/' + user.uid).set({
+          items: feedLength,
+        });
 
       });
     });

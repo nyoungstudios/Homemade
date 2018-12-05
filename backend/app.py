@@ -12,8 +12,6 @@ import google.oauth2.id_token
 
 app = Flask(__name__)
 
-ref = db.reference('/').get()
-print(ref)
 
 def getData(path):
     ref = db.reference(path)
@@ -52,13 +50,19 @@ def profile(id_token):
         print(uid)
     except:
         return redirect("/404")
+    # gets data from firebase
     data = getData('/users/' + str(uid))
+    feedData = getData('/feed/')
 
-    print(data)
+    # calculates the length in the dataset
     items = 0
     if data != None:
         items = len(data)
-    return render_template('profile.html', items=items)
+
+    feedLength = 0
+    if feedData != None:
+        feedLength = len(feedData)
+    return render_template('profile.html', items=items, feedLength=feedLength)
 
 #if wrong url is entered
 @app.route("/404", methods=['GET'])

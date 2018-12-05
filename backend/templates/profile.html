@@ -247,8 +247,10 @@
     <script type='text/javascript' src="{{ url_for('static', filename='profile.js')}}"></script>
     <script type='text/javascript' src="{{ url_for('static', filename='signout.js')}}"></script>
     
+    <!-- variables passed through by flask -->
     <script>
       var items = {{items}};
+      var feedLength = {{feedLength}};
     </script>
     
   </body>

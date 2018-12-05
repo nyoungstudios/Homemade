@@ -74,7 +74,7 @@
             <a class="nav-link text-light" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <b><a class="nav-link text-light" href="/profile">Profile</a></b>
+            <b><a class="nav-link text-light" href="/profile" id="profile">Profile</a></b>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="javascript:signoutUser()" id='logout'>Log out</a>
@@ -246,6 +246,10 @@
     <!-- Custom javascript files   -->
     <script type='text/javascript' src="{{ url_for('static', filename='profile.js')}}"></script>
     <script type='text/javascript' src="{{ url_for('static', filename='signout.js')}}"></script>
+    
+    <script>
+      var items = {{items}};
+    </script>
     
   </body>
 </html>

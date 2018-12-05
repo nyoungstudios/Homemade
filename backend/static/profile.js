@@ -109,9 +109,16 @@ function shareRecipe() {
         //link download url with user in firebase
         var user = firebase.auth().currentUser;
 
+        console.log(user.uid);
         console.log(downloadURL);
         console.log(postTitle);
         console.log(postText);
+        
+        
+        
+//        firebase.database().ref('users/' + user.uid).set({
+//          {{items}}: name,
+//        });
 
       });
     });

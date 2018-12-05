@@ -1,5 +1,6 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 from firebase_admin import db
+from firebase_admin import auth
 import FirebaseAuth
 import json
 
@@ -42,9 +43,22 @@ def logout():
 def notLoggedIn():
     return render_template('not-logged-in.html')
 
-@app.route("/profile", methods=['GET'])
-def profile():
-    return render_template('profile.html')
+@app.route("/profile/<id_token>", methods=['GET'])
+def profile(id_token):
+    uid = ''
+    try:
+        decoded_token = auth.verify_id_token(id_token)
+        uid = decoded_token['uid']
+        print(uid)
+    except:
+        return redirect("/404")
+    data = getData('/users/' + str(uid))
+
+    print(data)
+    items = 0
+    if data != None:
+        items = len(data)
+    return render_template('profile.html', items=items)
 
 #if wrong url is entered
 @app.route("/404", methods=['GET'])

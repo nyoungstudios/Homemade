@@ -16,7 +16,7 @@ var database = firebase.database();
 //function to upload profile picture
 function uploadProfPic() {
   var preview = $('#myProfImg'); 
-  var image = $("input[type='file']").get(0).files[0];
+  var image = $('#newProfPic').get(0).files[0];
   var reader = new FileReader();  
   var storageRefProf = storageRef.child('profilePictures/' + new Date().getTime() + image.name);
   
@@ -57,9 +57,9 @@ function showCreatePostUI() {
 
 
 //function to display post picture preview
-function uploadProfPic() {
+function displayPostPic() {
   var preview = $('#postPicPreview');
-  var image = $("input[type='file']").get(0).files[0];
+  var image = $('#newPostPic').get(0).files[0];
   var reader = new FileReader();
   
   reader.onload = function() {
@@ -75,7 +75,7 @@ function uploadProfPic() {
 //function to share recipe and picture
 function shareRecipe() {
   var preview = $('#postPicPreview');
-  var image = $("input[type='file']").get(0).files[0];
+  var image = $('#newPostPic').get(0).files[0];
   var reader = new FileReader();
   var postTitle = $('#postTitle').val();
   var postText = $('#postText').val();

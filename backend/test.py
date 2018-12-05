@@ -11,10 +11,10 @@ from firebase_admin import db
 # print('Successfully fetched user data: {0}'.format(user.uid))
 # print('Successfully fetched user data: {0}'.format(user))
 #
-# uid = 'RIVFej4v7mZVK6WRm43pHkSV1FE3'
-#
-# user = auth.get_user(uid)
-# print(user.photo_url)
+uid = 'vOUdm99aX3NersgPYiECRR5o7gq2'
+
+user = auth.get_user(uid)
+print(user.photo_url)
 # #
 # custom_token = auth.create_custom_token(uid)
 # print(custom_token)
@@ -22,11 +22,11 @@ from firebase_admin import db
 # decoded_token = auth.verify_id_token(id_token)
 # uid = decoded_token['uid']
 
-def getData(path):
-    ref = db.reference(path)
-    return ref.get()
-
-
-# ref = db.reference('/').get()
-path = getData('/users')
-print(path)
+# def getData(path):
+#     ref = db.reference(path)
+#     return ref.get()
+#
+#
+# # ref = db.reference('/').get()
+# path = getData('/users')
+# print(path)

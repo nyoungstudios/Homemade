@@ -24,9 +24,11 @@ function uploadProfPic() {
   
   reader.readAsDataURL(image);
   
+  //put image into firebase storage
   storageRefProf.put(image).then(function(snapshot) {
     snapshot.ref.getDownloadURL().then(function(downloadURL) {
-      console.log(downloadURL);
+      
+      //link download url with user in firebase
       var user = firebase.auth().currentUser;
 
       user.updateProfile({

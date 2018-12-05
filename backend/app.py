@@ -85,6 +85,25 @@ def profile(id_token):
 
     return render_template('profile.html', items=items, itemData=itemData, feedLength=feedLength, userFeedData=userFeedData)
 
+@app.route("/post-<number>", methods=['GET'])
+def post(number):
+    feedData = getData('/feed/')
+
+    postData = {}
+
+    print(number)
+
+    for i in range(len(feedData)):
+        print(i)
+        if i == int(number):
+            postData = feedData[i]
+            break
+    print(postData)
+
+
+
+    return render_template('post.html', number=number, postData=postData)
+
 #if wrong url is entered
 @app.route("/404", methods=['GET'])
 def fourOhFour():

@@ -1,6 +1,7 @@
 //javascript file for already logged in
 
-var name, photoUrl;
+var name;
+var photoUrl;
 var flag = 0;
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -9,6 +10,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     document.getElementsByTagName('body')[0].className = 'd-block';
     name = user.displayName;
     photoUrl = user.photoURL;
+    if (window.location.href.includes('/profile')) {
+      $('#myName').get(0).textContent = name;
+      $('#myProfImg').get(0).src = photoUrl; 
+    }
     flag = 1;
   } else {
     if (flag) {

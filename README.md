@@ -31,3 +31,4 @@ A website for sharing and discovering new recipes. You can create recipes on you
 5. Bootstrap
 6. HTML
 7. CSS
+8. Heroku

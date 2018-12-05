@@ -116,6 +116,7 @@ function shareRecipe() {
 //        console.log(photoUrl);
         
         //saves post data to firebase
+        //saves to the feed dataset
         firebase.database().ref('feed/' + feedLength).set({
           date: new Date().getTime(),
           description: postText,
@@ -129,11 +130,12 @@ function shareRecipe() {
             // The write failed...
           } else {
             // Data saved successfully!
+            //creates the json body for the set request
             jsonBody = {}
             itemData[items] = feedLength;
             jsonBody[user.uid] = itemData;
             
-            
+            //saves to the user dataset
             firebase.database().ref('users/').set(jsonBody, function(error) {
               if (error) {
                 // The write failed...

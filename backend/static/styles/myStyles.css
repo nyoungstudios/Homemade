@@ -8,7 +8,25 @@
   margin: 10px;
 
   object-fit: cover;
-  object-position: center right;
+  object-position: center;
+}
+
+.prof-image--cover {
+  width: 128px;
+  height: 128px;
+  border-radius: 128px;
+  margin: 10px;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.post--cover {
+  max-width: 2560px;
+  max-height: 1440px;
+
+  object-fit: cover;
+  object-position: center;
 }
 
 #name {
@@ -16,5 +34,6 @@
 }
 
 #myName {
-  margin-top: 15px;
+  margin-top: 64px;
+  margin-left: 10px;
 }

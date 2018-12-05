@@ -4,6 +4,10 @@
 
 A website for sharing and discovering new recipes. You can create recipes on your own profile to share with others, and you can discover new recipes in your home feed.
 
+## Try it
+
+<a href="https://homemade-cuisine.herokuapp.com">https://homemade-cuisine.herokuapp.com</a>
+
 ## Demo
 
 <a href="https://youtu.be/wQLT6ipgHmc">https://youtu.be/wQLT6ipgHmc</a>

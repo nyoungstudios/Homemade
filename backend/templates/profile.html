@@ -80,10 +80,12 @@
             <a class="nav-link text-light" href="javascript:signoutUser()" id='logout'>Log out</a>
           </li>
         </ul>
+<!--
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
         </form>
+-->
       </div>
     </nav>
     
@@ -208,27 +210,31 @@
       </div>
       <br>
       
+      {% for i in range(items-1, -1, -1) %}
+      
       <!-- Card container -->
       <div class="card mb-3">
         
         <div class="clearfix">
           <a class="text-dark" href="#">
-            <img src="http://fakeimg.pl/500x500/" class="image--cover float-left">
-            <h6 class="card-title float-left" id="name" style="margin-top: 15px;">Name</h6>
+            <img src="http://fakeimg.pl/500x500/" class="image--cover float-left" id="profPic{{i}}">
+            <h6 class="card-title float-left" id="name{{i}}" style="margin-top: 15px;">Name</h6>
           </a>
-          <p class="card-title float-right" style="margin-right: 15px; margin-top: 15px;"><small class="text-muted" id="time">3 mins ago</small></p>
+          <p class="card-title float-right" style="margin-right: 15px; margin-top: 15px;"><small class="text-muted" id="time{{i}}">3 mins ago</small></p>
         </div>
         
-        <img class="card-img-top post--cover" src="http://fakeimg.pl/1920x1080/" alt="Card image cap">
+        <img class="card-img-top post--cover" src="http://fakeimg.pl/1920x1080/" alt="Card image cap" id="mainPhoto{{i}}">
         
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title" id="postTitle{{i}}">Card title</h5>
+          <p class="card-text" id="postText{{i}}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           <a class="card-text" href="#"><small class="text-info">Read more</small></a>
         </div>
         
       </div>
       <br>
+      
+      {% endfor %}
       
     </div>
     
@@ -252,6 +258,8 @@
       var items = {{items}};
       var itemData = {{itemData}};
       var feedLength = {{feedLength}};
+      var userFeedData = {{ userFeedData | safe }};
+//      console.log(userFeedData);
     </script>
     
   </body>

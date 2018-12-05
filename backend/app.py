@@ -72,7 +72,18 @@ def profile(id_token):
     if feedData != None:
         feedLength = len(feedData)
     print("Feed Length: " + str(feedLength))
-    return render_template('profile.html', items=items, itemData=itemData, feedLength=feedLength)
+
+    userFeedData = []
+
+    # creates list for which belongs to the current user
+    for elem in feedData:
+        if elem['uid'] == uid:
+            userFeedData.append(elem)
+
+    # print(userFeedData)
+    # print(len(userFeedData))
+
+    return render_template('profile.html', items=items, itemData=itemData, feedLength=feedLength, userFeedData=userFeedData)
 
 #if wrong url is entered
 @app.route("/404", methods=['GET'])

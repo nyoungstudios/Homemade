@@ -6,10 +6,11 @@ $(document).ready(function() {
   
 });
 
+//firebase storage references
 var storage = firebase.storage();
 var storageRef = storage.ref();
 
-
+//function to upload profile picture
 function uploadProfPic() {
   var preview = $('#myProfImg'); 
   var image = $("input[type='file']").get(0).files[0];

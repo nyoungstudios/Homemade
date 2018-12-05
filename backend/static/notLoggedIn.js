@@ -28,6 +28,13 @@ firebase.auth().onAuthStateChanged(function(user) {
       }).catch(function(error) {
         // Handle error
       });
+    } else if (window.location.href.includes('/post-')) {
+      firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+        // Send token to your backend via HTTPS
+        $('#profile').get(0).pathname = "/profile/" + idToken;
+      }).catch(function(error) {
+        // Handle error
+      });
     }
     flag = 1;
   } else {

@@ -50,7 +50,10 @@ $(document).ready(function() {
   for (var i = items - 1; i >=0; i--) {
     $('#mainPhoto' + i).get(0).src = userFeedData[i]['photo'];
     $('#profPic' + i).get(0).src = userFeedData[i]['profilePhoto'];
-    $('#postText' + i).get(0).textContent = userFeedData[i]['description'];
+    $('#postText' + i).get(0).textContent = userFeedData[i]['description'].substr(0, 500);
+    if (userFeedData[i]['description'].length >= 500) {
+      $('#postText' + i).get(0).textContent = $('#postText' + i).get(0).textContent + '...';
+    }
     $('#postTitle' + i).get(0).textContent = userFeedData[i]['title'];
     $('#name' + i).get(0).textContent = userFeedData[i]['name'];
     
@@ -73,6 +76,8 @@ $(document).ready(function() {
     }
     
     $('#time' + i).get(0).textContent = timeDifference + timeUnit;
+    
+    $('#readMore' + i).get(0).pathname = 'post-' + itemData[i];
     
     
   }

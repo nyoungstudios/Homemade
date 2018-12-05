@@ -49,7 +49,10 @@ $(document).ready(function() {
   for (var i = feedLength - 1; i >=0; i--) {
     $('#mainPhoto' + i).get(0).src = feedData[i]['photo'];
     $('#profPic' + i).get(0).src = feedData[i]['profilePhoto'];
-    $('#postText' + i).get(0).textContent = feedData[i]['description'];
+    $('#postText' + i).get(0).textContent = feedData[i]['description'].substr(0, 500);
+    if (feedData[i]['description'].length >= 500) {
+      $('#postText' + i).get(0).textContent = $('#postText' + i).get(0).textContent + '...';
+    }
     $('#postTitle' + i).get(0).textContent = feedData[i]['title'];
     $('#name' + i).get(0).textContent = feedData[i]['name'];
     

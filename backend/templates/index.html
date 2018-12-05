@@ -4,6 +4,26 @@
     
     <!-- Home webpage: the feed   -->
     
+    <!--Initialized Firebase app    -->
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyCE6sBKtVsx130BqyloBvX5wlZbe1JCrEo",
+        authDomain: "homemade-cuisine.firebaseapp.com",
+        databaseURL: "https://homemade-cuisine.firebaseio.com",
+        projectId: "homemade-cuisine",
+        storageBucket: "homemade-cuisine.appspot.com",
+        messagingSenderId: "817618132169"
+    };
+    firebase.initializeApp(config);
+    </script>
+    
+    <!-- Not logged in script   -->
+    <script type='text/javascript' src="{{ url_for('static', filename='notLoggedIn.js')}}"></script>
+    
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -40,7 +60,7 @@
   </head>
   
     
-  <body>
+  <body class='d-none'>
     
     <!-- Nav bar -->
     <nav class="navbar sticky-top navbar-expand-custom navbar-light bg-success">
@@ -100,25 +120,6 @@
     
     
     
-          
-      
-      
-    <!--Initialized Firebase app    -->
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
-    
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
-    <script>
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyCE6sBKtVsx130BqyloBvX5wlZbe1JCrEo",
-        authDomain: "homemade-cuisine.firebaseapp.com",
-        databaseURL: "https://homemade-cuisine.firebaseio.com",
-        projectId: "homemade-cuisine",
-        storageBucket: "homemade-cuisine.appspot.com",
-        messagingSenderId: "817618132169"
-    };
-    firebase.initializeApp(config);
-    </script>
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

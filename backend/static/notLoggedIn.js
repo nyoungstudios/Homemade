@@ -12,7 +12,9 @@ firebase.auth().onAuthStateChanged(function(user) {
     photoUrl = user.photoURL;
     if (window.location.href.includes('/profile')) {
       $('#myName').get(0).textContent = name;
-      $('#myProfImg').get(0).src = photoUrl; 
+      if (photoUrl) {
+        $('#myProfImg').get(0).src = photoUrl;
+      }
       firebase.auth().currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
         // Send token to your backend via HTTPS
         $('#profile').get(0).pathname = "/profile/" + idToken;

@@ -1,10 +1,5 @@
 //javascript file for login webpage
 
-$(document).ready(function() {
-  
-
-  
-});
 
 //firebase storage references
 var storage = firebase.storage();
@@ -132,11 +127,16 @@ function shareRecipe() {
             // Data saved successfully!
             //creates the json body for the set request
             jsonBody = {}
-            itemData[items] = feedLength;
-            jsonBody[user.uid] = itemData;
+//            itemData[items] = feedLength;
+//            jsonBody[items] = itemData;
+            
+            for (var i = 0; i < items; i++) {
+              jsonBody[i] = itemData[i];
+            }
+            jsonBody[items] = feedLength;
             
             //saves to the user dataset
-            firebase.database().ref('users/').set(jsonBody, function(error) {
+            firebase.database().ref('users/' + user.uid).set(jsonBody, function(error) {
               if (error) {
                 // The write failed...
               } else {

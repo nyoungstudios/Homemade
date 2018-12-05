@@ -1,14 +1,7 @@
-from flask import Flask, request, render_template, redirect, jsonify
+from flask import Flask, render_template, redirect
 from firebase_admin import db
 from firebase_admin import auth
 import FirebaseAuth
-import json
-
-import google.auth.transport.requests
-import google.oauth2.id_token
-
-
-# HTTP_REQUEST = google.auth.transport.requests.Request()
 
 app = Flask(__name__)
 

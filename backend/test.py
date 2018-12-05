@@ -11,7 +11,7 @@ from firebase_admin import db
 # print('Successfully fetched user data: {0}'.format(user.uid))
 # print('Successfully fetched user data: {0}'.format(user))
 #
-uid = 'vOUdm99aX3NersgPYiECRR5o7gq2'
+uid = ''
 
 user = auth.get_user(uid)
 print(user.photo_url)

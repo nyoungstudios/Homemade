@@ -10,6 +10,9 @@ $(document).ready(function() {
 var storage = firebase.storage();
 var storageRef = storage.ref();
 
+//firebase database reference
+var database = firebase.database();
+
 //function to upload profile picture
 function uploadProfPic() {
   var preview = $('#myProfImg'); 

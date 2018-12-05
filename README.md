@@ -14,7 +14,7 @@ A website for sharing and discovering new recipes. You can create recipes on you
 2. Discover new recipes on the feed
 3. View your recipes under your profile
 4. Change your profile picture
-5. Upload a new recipe with pictures and description
+5. Upload a new recipe with a picture and a description
 6. 404 page and other backend routing
 7. Mobile friendly design
 

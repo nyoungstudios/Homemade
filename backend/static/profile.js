@@ -110,6 +110,11 @@ function shareRecipe() {
 //        console.log(postText);
 //        console.log(photoUrl);
         
+        var profilePhotoUrl = 'http://fakeimg.pl/500x500/';
+        if (photoUrl) {
+          profilePhotoUrl = photoUrl;
+        }
+        
         //saves post data to firebase
         //saves to the feed dataset
         firebase.database().ref('feed/' + feedLength).set({
@@ -117,7 +122,7 @@ function shareRecipe() {
           description: postText,
           name: user.displayName,
           photo: downloadURL,
-          profilePhoto: photoUrl,
+          profilePhoto: profilePhotoUrl,
           title: postTitle,
           uid: user.uid
         }, function(error) {
@@ -127,9 +132,7 @@ function shareRecipe() {
             // Data saved successfully!
             //creates the json body for the set request
             jsonBody = {}
-//            itemData[items] = feedLength;
-//            jsonBody[items] = itemData;
-            
+
             for (var i = 0; i < items; i++) {
               jsonBody[i] = itemData[i];
             }

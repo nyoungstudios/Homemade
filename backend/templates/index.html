@@ -90,36 +90,42 @@
     
     <!-- Main container for feed -->
     <div class="container" style="max-width: 45rem;">
-<!--      <h1>{{hello}}</h1>  -->
       
       <br>
+      
+      {% for i in range(feedLength-1, -1, -1) %}
       
       <!-- Card container -->
       <div class="card mb-3">
         
         <div class="clearfix">
           <a class="text-dark" href="#">
-            <img src="http://fakeimg.pl/500x500/" class="image--cover float-left">
-            <h6 class="card-title float-left" id="name">Name</h6>
+            <img src="http://fakeimg.pl/500x500/" class="image--cover float-left" id="profPic{{i}}">
+            <h6 class="card-title float-left" id="name{{i}}" style="margin-top: 15px;">Name</h6>
           </a>
-          <p class="card-title float-right" id="time" style="margin-right: 15px; margin-top: 15px;"><small class="text-muted">3 mins ago</small></p>
+          <p class="card-title float-right" id="time{{i}}" style="margin-right: 15px; margin-top: 15px;"><small class="text-muted">3 mins ago</small></p>
         </div>
         
-        <img class="card-img-top post-cover" src="http://fakeimg.pl/1920x1080/" alt="Card image cap">
+        <img class="card-img-top post-cover" src="http://fakeimg.pl/1920x1080/" alt="Card image cap" id="mainPhoto{{i}}">
         
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <h5 class="card-title" id="postTitle{{i}}">Card title</h5>
+          <p class="card-text" id="postText{{i}}">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           <a class="card-text" href="#"><small class="text-info">Read more</small></a>
         </div>
         
       </div>
       <br>
       
+      {% endfor %}
+      
     </div>
     
     
+    <!-- Initialize other Firebase stuff -->
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script>
     
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>-->
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -129,5 +135,13 @@
     
     <!-- Custom javascript files   -->
     <script type='text/javascript' src="{{ url_for('static', filename='signout.js')}}"></script>
+    <script type='text/javascript' src="{{ url_for('static', filename='index.js')}}"></script>
+    
+    <!-- variables passed through by flask -->
+    <script>
+      var feedLength = {{feedLength}};
+      var feedData = {{ feedData | safe }};
+//      console.log(feedData);
+    </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, jsonify
 from firebase_admin import db
 from firebase_admin import auth
 import FirebaseAuth
@@ -19,11 +19,15 @@ def getData(path):
 
 @app.route("/", methods=['GET'])
 def index():
-    # id_token = request.headers['Authorization'].split(' ').pop()
-    # claims = google.oauth2.id_token.verify_firebase_token(id_token, HTTP_REQUEST)
-    # print(claims)
-    # print(request)
-    return render_template('index.html', hello='Hello World!')
+    feedData = getData('/feed/')
+    feedLength = 0
+    if feedData != None:
+        feedLength = len(feedData)
+    print("Feed Length: " + str(feedLength))
+
+    # print(feedData)
+
+    return render_template('index.html', feedLength=feedLength, feedData=feedData)
 
 @app.route("/signup", methods=['GET'])
 def signin():

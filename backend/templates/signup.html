@@ -48,7 +48,7 @@
   </head>
   
     
-  <body>
+  <body> 
     
     <!-- Nav bar -->
     <nav class="navbar sticky-top navbar-expand-custom navbar-light bg-success">
@@ -122,11 +122,10 @@
     </div>
 
     
-    
-    
-        
     <!--Initialized Firebase app    -->
-    <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
     <script>
     // Initialize Firebase
     var config = {
@@ -141,7 +140,7 @@
     </script>
     
     <!-- Already logged in script   -->
-    <script type='text/javascript' src="{{ url_for('static', filename='alreadyLoggedIn.js')}}"></script> 
+    <script type='text/javascript' src="{{ url_for('static', filename='alreadyLoggedIn.js')}}"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

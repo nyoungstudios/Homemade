@@ -21,6 +21,7 @@ A website for sharing and discovering new recipes. You can create recipes on you
 5. Upload a new recipe with a picture and a description
 6. 404 page and other backend routing
 7. Mobile friendly design
+8. Form errors (i.e. email spelling check, missing field values, etc.)
 
 ## Tech Stack
 
